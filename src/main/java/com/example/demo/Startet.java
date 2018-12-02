@@ -1,7 +1,8 @@
 package com.example.demo;
 
-import com.example.demo.domain.Student;
-import com.example.demo.domain.StudentRepository;
+import com.example.demo.repository.StudentRepository;
+import com.example.demo.repository.UniversityRepository;
+import com.example.demo.service.StudentClassessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,10 @@ public class Startet  implements CommandLineRunner {
 
     @Autowired
     StudentRepository studentRepository ;
+    @Autowired
+    UniversityRepository universityRepository;
+    @Autowired
+    StudentClassessService studentClassessService;
 
     @Override
     @Transactional
@@ -20,6 +25,10 @@ public class Startet  implements CommandLineRunner {
 
         studentRepository.createStudent();
         studentRepository.addStudent("Joanna","Ptak",10,98765);
-       // studentRepository.deleteStudent(studentRepository.list().get(0));
+        studentClassessService.createZaleznosc();
+        studentClassessService.poczaczenieZUniverek();
+
     }
+
+
 }

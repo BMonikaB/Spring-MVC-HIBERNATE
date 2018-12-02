@@ -1,5 +1,7 @@
-package com.example.demo.domain;
+package com.example.demo.repository;
 
+import com.example.demo.domain.Index;
+import com.example.demo.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,13 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class StudentRepository {
+public class StudentRepository extends Student{
 
     @PersistenceContext
     EntityManager entityManager;
 
-
+    StudentRepository(){};
     List<Student> students = new ArrayList<>();
+
+    public StudentRepository(Student student) {
+        super(student);
+    }
+
+    public StudentRepository(String name, String lastName, int age, int index) {
+        super(name, lastName, age, index);
+    }
 
     public void showStudents(){
         for (Student s : students){

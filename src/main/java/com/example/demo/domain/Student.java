@@ -8,12 +8,10 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_student;
     private String name;
     private String lastName;
     private int age;
-    @Embedded
-    private Address address;
     @OneToOne(cascade = CascadeType.ALL)
     private Index index;
     @ManyToOne
@@ -21,33 +19,34 @@ public class Student {
     @ManyToMany
     private List<Classes> classes = new ArrayList<>();
 
-    Student(int i, String anna, String kot, int i1) {
+
+    public Student(Student student){
+
     }
 
-    public Student(String name, String lastName, int age) {
+    public Student(String name, String lastName, int age, int index ){
         this.name = name;
         this.lastName = lastName;
         this.age = age;
+        this.index = new Index(index);
+        classes = new ArrayList<>();
     }
 
-    public Student(String name, String lastName, int age, int id){
-        this.id = id;
+    public Student() {
     }
 
-    public Student(int id, String name, String lastName, int age, Index index) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
-        this.index = index;
+
+    public void addClassess(Classes classes){
+        this.classes.add(classes);
     }
+
 
     public int getId() {
-        return id;
+        return id_student;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_student = id;
     }
 
     public String getName() {
@@ -74,13 +73,6 @@ public class Student {
         this.age = age;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public Index getIndex() {
         return index;
@@ -108,6 +100,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age + ", address=" + address + ", index=" + index + '}';
+        return "Student{" + "id_student=" + id_student + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age ;
     }
 }

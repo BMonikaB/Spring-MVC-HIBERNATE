@@ -9,47 +9,31 @@ public class Classes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_classes;
     private String nameOfTheClass;
+    private int classroom;
     @ManyToMany(mappedBy = "classes")
-    private List<Student> studentList = new ArrayList<>();
+    private List<Student> studentList;
 
 
     public Classes() {
     }
 
-    public Classes(int id, String nameOfTheClass, List<Student> studentList) {
-        this.id = id;
-        this.nameOfTheClass = nameOfTheClass;
-        this.studentList = studentList;
+
+    public Classes(String nameOfTheClass, int classroom){
+        this.nameOfTheClass= nameOfTheClass;
+        this.classroom = classroom;
+        this.studentList = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
+    public void addStudent(Student student){
+        this.studentList.add(student);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getNameOfTheClass() {
-        return nameOfTheClass;
-    }
-
-    public void setNameOfTheClass(String nameOfTheClass) {
-        this.nameOfTheClass = nameOfTheClass;
-    }
-
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
 
     @Override
     public String toString() {
-        return "Classes{" + "id=" + id + ", nameOfTheClass='" + nameOfTheClass + '\'' + ", studentList=" + studentList + '}';
+        return "Classes{" + "id_classess=" + id_classes + ", nameOfTheClass='" + nameOfTheClass + '\'' + ", studentList=" + studentList + '}';
     }
 }

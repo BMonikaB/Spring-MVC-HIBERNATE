@@ -7,25 +7,32 @@ public class Index {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int id_index;
     private int indexNumber;
     @OneToOne(mappedBy = "index")
     private Student student;
 
-    public Index(){};
+    public Index(){
 
-    public Index(int id, int indexNumber, Student student) {
-        this.id = id;
+    }
+
+    public Index (int index){
+        this.indexNumber = index;
+    }
+
+
+    public Index(int id_index, int indexNumber, Student student) {
+        this.id_index = id_index;
         this.indexNumber = indexNumber;
         this.student = student;
     }
 
     public int getId() {
-        return id;
+        return id_index;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_index = id;
     }
 
     public int getIndexNumber() {
@@ -46,6 +53,6 @@ public class Index {
 
     @Override
     public String toString() {
-        return "Index{" + "id=" + id + ", indexNumber=" + indexNumber + ", student=" + student + '}';
+        return "Index{" + "id_index=" + id_index + ", indexNumber=" + indexNumber + ", student=" + student + '}';
     }
 }
