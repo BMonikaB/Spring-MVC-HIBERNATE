@@ -27,6 +27,15 @@ public class Index {
         this.student = student;
     }
 
+    public int getId_index() {
+        return id_index;
+    }
+
+    public void setId_index(int id_index) {
+        this.id_index = id_index;
+    }
+
+
     public int getId() {
         return id_index;
     }

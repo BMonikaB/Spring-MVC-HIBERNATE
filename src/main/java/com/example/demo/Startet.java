@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.repository.IndexRepository;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.repository.UniversityRepository;
 import com.example.demo.service.StudentClassessService;
@@ -18,6 +19,8 @@ public class Startet  implements CommandLineRunner {
     UniversityRepository universityRepository;
     @Autowired
     StudentClassessService studentClassessService;
+    @Autowired
+    IndexRepository indexRepository;
 
 
     @Override
@@ -33,6 +36,9 @@ public class Startet  implements CommandLineRunner {
         studentRepository.showStudents();
         System.out.println(studentRepository.list());
         System.out.println(universityRepository.getAllUniversityList());
+
+        System.out.println("Wszystkie indeksy");
+        System.out.println(indexRepository.getAllIndex());
 
 
     }

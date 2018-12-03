@@ -13,9 +13,9 @@ public class ClassessRepository extends Classes {
     @PersistenceContext
     EntityManager entityManager;
 
+    Classes classes = new Classes();
 
-    @Override
-    public void addStudent(Student student) {
-        super.addStudent(student);
-    }
+
+
+
 }

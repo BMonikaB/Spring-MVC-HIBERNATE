@@ -14,64 +14,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class StudentRepository extends Student{
+public class StudentRepository extends Student {
 
     @PersistenceContext
     EntityManager entityManager;
 
-    StudentRepository(){};
-    List<Student> students = new ArrayList<>();
+    StudentRepository() {
+    }
 
+    ;
+    List<Student> students = new ArrayList<>();
 
 
     public StudentRepository(String name, String lastName, int age, int index) {
         super(name, lastName, age, index);
     }
 
-    public void showStudents(){
-        for (Student s : students){
+    public void showStudents() {
+        for (Student s : students) {
             System.out.println(students);
         }
     }
 
     @Transactional
-    public void addStudent(String name, String lastName, int age, int index){
-        Student student = new Student(name,lastName,age,index);
-        entityManager.persist(student);
-        students.add(student);
-    }
-    @Transactional
-    public void addStudent(String name, String lastName, int age){
-        Student student = new Student(name,lastName,age);
+    public void addStudent(String name, String lastName, int age, int index) {
+        Student student = new Student(name, lastName, age, index);
         entityManager.persist(student);
         students.add(student);
     }
 
+    @Transactional
+    public void addStudent(String name, String lastName, int age) {
+        Student student = new Student(name, lastName, age);
+        entityManager.persist(student);
+        students.add(student);
+    }
+
 
     @Transactional
-    public void createStudent(){
-        addStudent("Anna","Kot",10,12345);
+    public void createStudent() {
+        addStudent("Anna", "Kot", 10, 12345);
     }
 
     @Transactional
-    public void deleteStudent(Student student){
-       entityManager.remove(student);
+    public void deleteStudent(Student student) {
+        entityManager.remove(student);
     }
 
     @Transactional
-    public List<Student> list(){
+    public List<Student> list() {
         return entityManager.createQuery("from Student", Student.class).getResultList();
     }
 
-@Transactional
-public void saveStudent(Student student){
-        addStudent(student.getName(),student.getLastName(),student.getAge());
-}
-
+    @Transactional
+    public void saveStudent(Student student) {
+        addStudent(student.getName(), student.getLastName(), student.getAge());
+    }
 
 
     @Override
     public String toString() {
-        return "StudentRepository{" + "entityManager=" + entityManager + '}';
+        return "StudentRepository{" + "entityManager=" + entityManager + ", students=" + students + '}';
     }
 }

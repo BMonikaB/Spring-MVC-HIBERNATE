@@ -44,8 +44,6 @@ public class StudentClassessService {
         entityManager.persist(pwr);
         Student ala = entityManager.find(Student.class,1);
         Student dwa = entityManager.find(Student.class,3);
-        System.out.println(ala);
-        System.out.println(dwa);
         ala.setUniversity(pwr);
         dwa.setUniversity(wroclawski);
         pwr.addStudent(ala);
