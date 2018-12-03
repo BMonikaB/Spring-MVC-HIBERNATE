@@ -19,6 +19,7 @@ public class Startet  implements CommandLineRunner {
     @Autowired
     StudentClassessService studentClassessService;
 
+
     @Override
     @Transactional
     public void run(String... args) throws Exception {
@@ -27,6 +28,12 @@ public class Startet  implements CommandLineRunner {
         studentRepository.addStudent("Joanna","Ptak",10,98765);
         studentClassessService.createZaleznosc();
         studentClassessService.poczaczenieZUniverek();
+
+        System.out.println("Wszystko");
+        studentRepository.showStudents();
+        System.out.println(studentRepository.list());
+        System.out.println(universityRepository.getAllUniversityList());
+
 
     }
 

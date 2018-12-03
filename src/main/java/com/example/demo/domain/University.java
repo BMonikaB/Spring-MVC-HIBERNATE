@@ -23,6 +23,22 @@ public class University {
         studentList = new HashSet<>();
     }
 
+    public int getId_University() {
+        return id_University;
+    }
+
+    public Set<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setId_University(int id_University) {
+        this.id_University = id_University;
+    }
+
+    public void setStudentList(Set<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     public void addStudent(Student student){
         studentList.add(student);
     }

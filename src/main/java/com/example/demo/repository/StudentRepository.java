@@ -22,9 +22,7 @@ public class StudentRepository extends Student{
     StudentRepository(){};
     List<Student> students = new ArrayList<>();
 
-    public StudentRepository(Student student) {
-        super(student);
-    }
+
 
     public StudentRepository(String name, String lastName, int age, int index) {
         super(name, lastName, age, index);
@@ -39,6 +37,12 @@ public class StudentRepository extends Student{
     @Transactional
     public void addStudent(String name, String lastName, int age, int index){
         Student student = new Student(name,lastName,age,index);
+        entityManager.persist(student);
+        students.add(student);
+    }
+    @Transactional
+    public void addStudent(String name, String lastName, int age){
+        Student student = new Student(name,lastName,age);
         entityManager.persist(student);
         students.add(student);
     }
@@ -58,6 +62,12 @@ public class StudentRepository extends Student{
     public List<Student> list(){
         return entityManager.createQuery("from Student", Student.class).getResultList();
     }
+
+@Transactional
+public void saveStudent(Student student){
+        addStudent(student.getName(),student.getLastName(),student.getAge());
+}
+
 
 
     @Override

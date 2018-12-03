@@ -24,6 +24,8 @@ public class StudentClassessService {
     @Autowired
     ClassessRepository classessRepository;
 
+
+
     @Transactional
     public void createZaleznosc(){
         Classes polski = new Classes("Polski",20);

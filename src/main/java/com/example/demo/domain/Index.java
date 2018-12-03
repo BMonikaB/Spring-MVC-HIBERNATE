@@ -53,6 +53,6 @@ public class Index {
 
     @Override
     public String toString() {
-        return "Index{" + "id_index=" + id_index + ", indexNumber=" + indexNumber + ", student=" + student + '}';
+        return "Index{" + "id_index=" + id_index + ", indexNumber=" + indexNumber;
     }
 }

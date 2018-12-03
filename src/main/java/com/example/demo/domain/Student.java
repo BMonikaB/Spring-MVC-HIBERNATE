@@ -35,6 +35,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(String name, String lastName, int age) {
+        this.name = name;
+        this.lastName =lastName;
+        this.age=age;
+    }
+
 
     public void addClassess(Classes classes){
         this.classes.add(classes);
@@ -74,9 +80,6 @@ public class Student {
     }
 
 
-    public Index getIndex() {
-        return index;
-    }
 
     public void setIndex(Index index) {
         this.index = index;
@@ -98,8 +101,20 @@ public class Student {
         this.classes = classes;
     }
 
+    public int getId_student() {
+        return id_student;
+    }
+
+    public void setId_student(int id_student) {
+        this.id_student = id_student;
+    }
+
+    public Index getIndex() {
+        return index;
+    }
+
     @Override
     public String toString() {
-        return "Student{" + "id_student=" + id_student + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age ;
+        return "Student{" + "id_student=" + id_student + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age;
     }
 }
