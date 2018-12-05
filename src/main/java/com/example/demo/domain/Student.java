@@ -1,4 +1,6 @@
 package com.example.demo.domain;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +55,6 @@ public class Student {
         return id_student;
     }
 
-    public void setId(int id) {
-        this.id_student = id;
-    }
 
     public String getName() {
         return name;
