@@ -26,9 +26,39 @@ public class Classes {
         this.studentList = new ArrayList<>();
     }
 
+    public int getId_classes() {
+        return id_classes;
+    }
+
+    public String getNameOfTheClass() {
+        return nameOfTheClass;
+    }
+
+    public void setNameOfTheClass(String nameOfTheClass) {
+        this.nameOfTheClass = nameOfTheClass;
+    }
+
+    public int getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(int classroom) {
+        this.classroom = classroom;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     public void addStudent(Student student){
         this.studentList.add(student);
     }
+
+
 
 
 

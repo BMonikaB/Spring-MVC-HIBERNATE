@@ -19,12 +19,10 @@ public class StudentRepository extends Student {
     @PersistenceContext
     EntityManager entityManager;
 
-    StudentRepository() {
-    }
-
-    ;
     List<Student> students = new ArrayList<>();
 
+    StudentRepository() {
+    }
 
     public StudentRepository(String name, String lastName, int age, int index) {
         super(name, lastName, age, index);
@@ -50,6 +48,9 @@ public class StudentRepository extends Student {
         students.add(student);
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
 
     @Transactional
     public void createStudent() {
@@ -71,6 +72,17 @@ public class StudentRepository extends Student {
         addStudent(student.getName(), student.getLastName(), student.getAge());
     }
 
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 
     @Override
     public String toString() {

@@ -17,13 +17,17 @@ public class IndexRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    List<Index> indexList = new ArrayList<>();
+    private List<Index> indexList = new ArrayList<>();
 
     @Transactional
     public void addIndex(int index) {
         Index index1 = new Index(index);
         entityManager.persist(index1);
         indexList.add(index1);
+    }
+
+    public List<Index> getIndexList() {
+        return indexList;
     }
 
     @Transactional

@@ -29,8 +29,8 @@ public class Startet  implements CommandLineRunner {
 
         studentRepository.createStudent();
         studentRepository.addStudent("Joanna","Ptak",10,98765);
-        studentClassessService.createZaleznosc();
-        studentClassessService.poczaczenieZUniverek();
+        studentClassessService.connectClassesStudent();
+        studentClassessService.connectUniversityStudent();
 
         System.out.println("Wszystko");
         studentRepository.showStudents();

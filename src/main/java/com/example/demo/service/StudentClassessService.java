@@ -27,7 +27,7 @@ public class StudentClassessService {
 
 
     @Transactional
-    public void createZaleznosc(){
+    public void connectClassesStudent(){
         Classes polski = new Classes("Polski",20);
         entityManager.persist(polski);
         Student ala = entityManager.find(Student.class,1);
@@ -37,7 +37,7 @@ public class StudentClassessService {
     }
 
     @Transactional
-    public void poczaczenieZUniverek(){
+    public void connectUniversityStudent(){
         University pwr = new University("Pwr");
         University wroclawski = new University("Uniwerystet Wroclawski");
         entityManager.persist(wroclawski);

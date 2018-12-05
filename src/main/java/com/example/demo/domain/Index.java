@@ -31,11 +31,6 @@ public class Index {
         return id_index;
     }
 
-    public void setId_index(int id_index) {
-        this.id_index = id_index;
-    }
-
-
     public int getId() {
         return id_index;
     }
