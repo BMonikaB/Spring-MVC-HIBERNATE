@@ -11,6 +11,29 @@
 </head>
 <body>
 
+<div class="container">
+<table class="table">
+<thead>
+    <tr>
+        <td><b>Numer ID :</b></td>
+        <td><b>Nazwa lecki</b></td>
+        <td><b>Numer sali</b></td>
+        <td></td>
+    </tr>
+</thead>
+<tbody>
+    <tr th:each="classes : ${classes}">
+        <td th:text="${classes.id_classes}"></td>
+        <td th:text="${classes.nameOfTheClass}"></td>
+        <td th:text="${classes.classroom}"></td>
+        <td><a th:href="@{'/classes/delete/' +classes.id_classes}">USUN</a> </td>
+    </tr>
+</tbody>
+</table>
+<div class="row">
+<a th:href="@{/classescreate}">Dodaj nową lekcje</a>
+</div>
+</div>
 
 
 

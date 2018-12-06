@@ -1,4 +1,5 @@
 package com.example.demo.domain;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_student;
+    private int id;
     private String name;
     private String lastName;
     private int age;
@@ -19,14 +20,10 @@ public class Student {
     @ManyToMany
     private List<Classes> classes = new ArrayList<>();
 
-
-    public Student(Student student){
-
+    public Student() {
     }
 
-
-
-    public Student(String name, String lastName, int age, int index ){
+    public Student(String name, String lastName, int age, int index) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
@@ -34,27 +31,19 @@ public class Student {
         classes = new ArrayList<>();
     }
 
-    public Student() {
-    }
-
     public Student(String name, String lastName, int age) {
         this.name = name;
-        this.lastName =lastName;
-        this.age=age;
+        this.lastName = lastName;
+        this.age = age;
     }
 
-
-    public void addClassess(Classes classes){
+    public void addClassess(Classes classes) {
         this.classes.add(classes);
     }
 
 
     public int getId() {
-        return id_student;
-    }
-
-    public void setId(int id) {
-        this.id_student = id;
+        return id;
     }
 
     public String getName() {
@@ -82,7 +71,6 @@ public class Student {
     }
 
 
-
     public void setIndex(Index index) {
         this.index = index;
     }
@@ -103,13 +91,6 @@ public class Student {
         this.classes = classes;
     }
 
-    public int getId_student() {
-        return id_student;
-    }
-
-    public void setId_student(int id_student) {
-        this.id_student = id_student;
-    }
 
     public Index getIndex() {
         return index;
@@ -117,6 +98,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id_student=" + id_student + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age;
+        return "Student{" + "id_student=" + id + ", name='" + name + '\'' + ", lastName='" + lastName + '\'' + ", age=" + age;
     }
 }

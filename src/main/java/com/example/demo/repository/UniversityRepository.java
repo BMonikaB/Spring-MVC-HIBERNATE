@@ -17,7 +17,6 @@ public class UniversityRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    public University university;
 
     private List<University> universityList = new ArrayList<>();
 
@@ -34,8 +33,8 @@ public class UniversityRepository {
     }
 
     @Transactional
-    public void deleteUniversity(University university) {
-        universityList.remove(university);
+    public void deleteUniversity(int id_University) {
+        University university = entityManager.find(University.class, id_University);
         entityManager.remove(university);
     }
 
@@ -53,8 +52,5 @@ public class UniversityRepository {
         return universityList;
     }
 
-    @Override
-    public String toString() {
-        return "UniversityRepository{" + "entityManager=" + entityManager + ", university=" + university + ", universityList=" + universityList + '}';
-    }
+
 }

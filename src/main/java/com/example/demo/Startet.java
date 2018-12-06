@@ -28,12 +28,11 @@ public class Startet  implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         studentRepository.createStudent();
-        studentRepository.addStudent("Joanna","Ptak",10,98765);
         studentClassessService.connectClassesStudent();
         studentClassessService.connectUniversityStudent();
 
         System.out.println("Wszystko");
-        studentRepository.showStudents();
+        studentRepository.list();
         System.out.println(studentRepository.list());
         System.out.println(universityRepository.getAllUniversityList());
 

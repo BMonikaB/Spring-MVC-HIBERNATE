@@ -11,6 +11,26 @@
 </head>
 <body>
 <div class="container">
+<form class="form-horizontal" th:object="${classes}" th:action="@{/classes}" th:method="post">
+
+<div class="form-group">
+<label class="control-label">Nazwa zajęć</label>
+<input class="form-control" type="text" th:field="*{nameOfTheClass}">
+</div>
+
+<div class="form-group">
+<label class="control-label">Numer sali</label>
+<input class="form-control" type="number" th:field="*{classroom}">
+
+
+   <div class="row">
+              <button type="submit" class="btn btn-default">DODAJ</button>
+          </div>
+</div>
+
+
+
+</form>
 
 
 </div>

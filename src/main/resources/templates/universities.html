@@ -16,18 +16,20 @@
         <tr>
             <td><b>Id_Uniwersytetu :</b></td>
             <td><b>Nazwa Uniwersytetu :</b></td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
             <tr th:each="university : ${alluniversity}">
                 <td th:text="${university.id_University}"></td>
                 <td th:text="${university.theNameOfTheUniversity}"></td>
+                <td><a th:href="${'/university/delete/' +university.id_University}">USUN</a></td>
             </tr>
         </tbody>
 
     </table>
       <div class="row">
-         <a href="/universitycreate">Dodaj studenta</a>
+         <a href="/universitycreate">Dodaj uczelnie</a>
       </div>
 
     </div>

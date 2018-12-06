@@ -18,16 +18,18 @@
         <td>imie :</td>
         <td>nazwisko :</td>
         <td>wiek :</td>
-        <td>index :</td>
+        <td></td>
+        <td></td>
     </tr>
         </thead>
         <tbody>
     <tr  th:each="student : ${allStudent}">
-        <td th:text="${student.id_student}"></td>
+        <td th:text="${student.id}"></td>
         <td th:text="${student.name}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.age}"></td>
-        <td th:text="${student.index}"></td>
+        <td><a th:href="${'/students/showMore/'+student.id}">Pokaz wiecej</a> </td>
+        <td><a th:href="${'/students/delete/'+student.id}">Usun</a></td>
     </tr>
 
         </tbody>
