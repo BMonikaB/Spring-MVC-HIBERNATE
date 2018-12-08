@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Student {
@@ -15,10 +16,11 @@ public class Student {
     private int age;
     @OneToOne(cascade = CascadeType.ALL)
     private Index index;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private University university;
     @ManyToMany
     private List<Classes> classes = new ArrayList<>();
+
 
     public Student() {
     }
@@ -27,14 +29,29 @@ public class Student {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.index = new Index(index);
+        this.index =new Index(index);
         classes = new ArrayList<>();
     }
+
 
     public Student(String name, String lastName, int age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public Student(String name, String lastName, int age, Index index) {
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.index = index;
+        classes = new ArrayList<>();
+    }
+
+    //probne
+    public Student(int id)
+    {
+        this.id = id;
     }
 
     public void addClassess(Classes classes) {
@@ -44,6 +61,10 @@ public class Student {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -94,6 +115,21 @@ public class Student {
 
     public Index getIndex() {
         return index;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && Objects.equals(name, student.name) && Objects.equals(lastName, student.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, lastName, age);
     }
 
     @Override

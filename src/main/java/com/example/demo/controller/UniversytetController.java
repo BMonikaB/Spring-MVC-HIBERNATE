@@ -41,9 +41,9 @@ public class UniversytetController {
         return "redirect:/universities";
     }
 
-    @RequestMapping(value = "/university/delete/{id_University}")
-    public String deleteUniversity(@PathVariable("id_University") Integer id_University, Model model) {
-        universityService.deleteUniversity(id_University);
+    @RequestMapping(value = "/university/delete/{id}")
+    public String deleteUniversity(@PathVariable("id") Integer id, Model model) {
+        universityService.deleteUniversity(id);
         return "redirect:/universities";
     }
 }

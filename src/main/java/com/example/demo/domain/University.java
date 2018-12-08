@@ -9,7 +9,7 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_University;
+    private int id;
     private String theNameOfTheUniversity;
     @OneToMany(mappedBy = "university")
     private Set<Student> studentList;
@@ -28,8 +28,12 @@ public class University {
         studentList.add(student);
     }
 
-    public int getId_University() {
-        return id_University;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTheNameOfTheUniversity() {
@@ -50,7 +54,7 @@ public class University {
 
     @Override
     public String toString() {
-        return "University{" + "id=" + id_University + ", theNameOfTheUniversity='" + theNameOfTheUniversity;
+        return "University{" + "id=" + id + ", theNameOfTheUniversity='" + theNameOfTheUniversity;
     }
 
 

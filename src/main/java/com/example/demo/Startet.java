@@ -40,6 +40,7 @@ public class Startet  implements CommandLineRunner {
         System.out.println(indexRepository.getAllIndex());
 
 
+
     }
 
 

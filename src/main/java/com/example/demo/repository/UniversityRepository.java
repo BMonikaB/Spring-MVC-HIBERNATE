@@ -33,8 +33,8 @@ public class UniversityRepository {
     }
 
     @Transactional
-    public void deleteUniversity(int id_University) {
-        University university = entityManager.find(University.class, id_University);
+    public void deleteUniversity(int id) {
+        University university = entityManager.find(University.class, id);
         entityManager.remove(university);
     }
 

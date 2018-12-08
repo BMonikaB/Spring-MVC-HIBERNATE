@@ -30,4 +30,9 @@ public class StudentService {
     public List<Student> list() {
         return studentRepository.list();
     }
+
+    //probne
+    public void updateStudent(Student student) {
+        studentRepository.updateStudent(student);
+    }
 }

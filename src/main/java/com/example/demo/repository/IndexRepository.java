@@ -19,13 +19,30 @@ public class IndexRepository {
 
     private List<Index> indexList = new ArrayList<>();
 
+    IndexRepository() {
+
+    }
+
+    ;
+
+
     @Transactional
     public void addIndex(int index) {
         Index index1 = new Index(index);
         entityManager.persist(index1);
-        indexList.add(index1);
+          indexList.add(index1);
+           indexList.add(index1);
     }
 
+
+    @Transactional
+    public void buildIndex() {
+        addIndex(12345);
+        addIndex(78901);
+
+    }
+
+    @Transactional
     public List<Index> getIndexList() {
         return indexList;
     }
@@ -34,5 +51,11 @@ public class IndexRepository {
     public List<Index> getAllIndex() {
         return entityManager.createQuery("from Index", Index.class).getResultList();
     }
+
+    @Transactional
+    public void saveIndex(Index index) {
+        addIndex(index.getId_index());
+    }
+
 
 }

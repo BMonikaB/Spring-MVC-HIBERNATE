@@ -8,6 +8,7 @@ public class Index {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_index;
+    @GeneratedValue
     private int indexNumber;
     @OneToOne(mappedBy = "index")
     private Student student;
@@ -26,6 +27,8 @@ public class Index {
         this.indexNumber = indexNumber;
         this.student = student;
     }
+
+
 
     public int getId_index() {
         return id_index;

@@ -15,8 +15,8 @@ public class UniversityService {
     UniversityRepository universityRepository;
 
 
-    public void deleteUniversity(Integer id_university) {
-        universityRepository.deleteUniversity(id_university);
+    public void deleteUniversity(Integer id) {
+        universityRepository.deleteUniversity(id);
     }
 
     public void saveUniversity(University university) {

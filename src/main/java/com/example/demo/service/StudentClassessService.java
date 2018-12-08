@@ -29,10 +29,17 @@ public class StudentClassessService {
     @Transactional
     public void connectClassesStudent(){
         Classes polski = new Classes("Polski",20);
+        Classes matematyka = new Classes("Matematyka",12);
         entityManager.persist(polski);
+        entityManager.persist(matematyka);
         Student ala = entityManager.find(Student.class,1);
+        Student joanna = entityManager.find(Student.class,3);
         polski.addStudent(ala);
+        polski.addStudent(joanna);
         ala.addClassess(polski);
+        matematyka.addStudent(joanna);
+        joanna.addClassess(matematyka);
+        joanna.addClassess(polski);
 
     }
 

@@ -42,7 +42,7 @@ public class StudentController {
     @RequestMapping(value = "/students/showMore/{id}")
     public String showMore(@PathVariable("id") Integer id, Model model){
         Student student = studentService.getOneStudents(id);
-        model.addAttribute("studentt",student);
+        model.addAttribute("student",student);
         return "showmorestudent";
     }
 

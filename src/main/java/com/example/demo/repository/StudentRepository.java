@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.domain.Index;
 import com.example.demo.domain.Student;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ public class StudentRepository extends Student {
     @PersistenceContext
     EntityManager entityManager;
 
-    private List<Student> students =  new ArrayList<>();
+    List<Student> students =  new ArrayList<>();
 
     StudentRepository() {
     }
@@ -34,8 +35,8 @@ public class StudentRepository extends Student {
 
 
     @Transactional
-    public void addStudent(String name, String lastName, int age) {
-        Student student = new Student(name, lastName, age);
+    public void addStudent(String name, String lastName, int age, Index index) {
+        Student student = new Student(name, lastName, age, index);
         entityManager.persist(student);
         students.add(student);
     }
@@ -53,12 +54,15 @@ public class StudentRepository extends Student {
 
     @Transactional
     public void saveStudent(Student student) {
-        addStudent(student.getName(), student.getLastName(), student.getAge());
+        addStudent(student.getName(), student.getLastName(), student.getAge(),student.getIndex());
     }
 
 
+    @Transactional
     public Student getOneStudents(Integer id) {
-        return students.get(id);
+       Student student = entityManager.find(Student.class,id);
+       return student;
+        // return students.get(id);
     }
 
 
@@ -69,8 +73,10 @@ public class StudentRepository extends Student {
     }
 
 
+    //nie wiem
+    @Transactional
+    public void updateStudent(Student student) {
+       entityManager.merge(student);
 
-
-
-
+    }
 }

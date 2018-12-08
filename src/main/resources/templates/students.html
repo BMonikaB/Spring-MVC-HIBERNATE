@@ -14,10 +14,12 @@
     <table class="table">
         <thead>
     <tr>
-        <td>Id_student :</td>
-        <td>imie :</td>
-        <td>nazwisko :</td>
-        <td>wiek :</td>
+        <td><b>Id_student :</b></td>
+        <td><b>imie :</b></td>
+        <td><b>nazwisko :</b></td>
+        <td><b>wiek :</b></td>
+        <td><b>Ustaw indeks</b></td>
+        <td><b>Ustaw uczelnie</b></td>
         <td></td>
         <td></td>
     </tr>
@@ -28,14 +30,20 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.age}"></td>
+        <td><a>wybierz</a></td>
+
+        <td>
+            <span th:if="${student.university==null}">Brak przypisanego Uniwersytetu
+             <a th:href="${'/assignuniversity?id='+student.id}">Przypisz zadanie</a>
+            </span>
+            <span th:if="${student.university!=null}" th:text="${student.university.id}"/>
+        </td>
+
         <td><a th:href="${'/students/showMore/'+student.id}">Pokaz wiecej</a> </td>
         <td><a th:href="${'/students/delete/'+student.id}">Usun</a></td>
     </tr>
 
         </tbody>
-
-
-
     </table>
     <div class="row">
          <a href="/studentcreate">Dodaj studenta</a>

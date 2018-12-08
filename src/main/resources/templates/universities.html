@@ -21,9 +21,9 @@
         </thead>
         <tbody>
             <tr th:each="university : ${alluniversity}">
-                <td th:text="${university.id_University}"></td>
+                <td th:text="${university.id}"></td>
                 <td th:text="${university.theNameOfTheUniversity}"></td>
-                <td><a th:href="${'/university/delete/' +university.id_University}">USUN</a></td>
+                <td><a th:href="${'/university/delete/' +university.id}">USUN</a></td>
             </tr>
         </tbody>
 
