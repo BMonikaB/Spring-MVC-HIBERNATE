@@ -31,7 +31,7 @@ public class StudentService {
         return studentRepository.list();
     }
 
-    //probne
+
     public void updateStudent(Student student) {
         studentRepository.updateStudent(student);
     }

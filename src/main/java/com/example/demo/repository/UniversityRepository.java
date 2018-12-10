@@ -18,13 +18,11 @@ public class UniversityRepository {
     EntityManager entityManager;
 
 
-    private List<University> universityList = new ArrayList<>();
 
     @Transactional
     public void addUniversity(String theNameOfTheUniversity) {
         University one = new University(theNameOfTheUniversity);
         entityManager.persist(one);
-        universityList.add(one);
     }
 
     @Transactional
@@ -38,7 +36,7 @@ public class UniversityRepository {
         entityManager.remove(university);
     }
 
-    @Transactional
+
     public List<University> getAllUniversityList() {
         return entityManager.createQuery("from University", University.class).getResultList();
     }
@@ -48,9 +46,14 @@ public class UniversityRepository {
         addUniversity(university.getTheNameOfTheUniversity());
     }
 
-    public List<University> getUniversityList() {
-        return universityList;
+
+    @Transactional
+    public void updateUniversity(University university) {
+        entityManager.merge(university);
     }
 
 
+    public University getOneUniversity(int id){
+       return entityManager.createQuery("from University k where k.id=id", University.class).setParameter("id",id).getSingleResult();
+    }
 }

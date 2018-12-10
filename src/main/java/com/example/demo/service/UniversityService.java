@@ -26,4 +26,8 @@ public class UniversityService {
     public List<University> getAllUniversityList() {
         return universityRepository.getAllUniversityList();
     }
+
+    public void updateUniversity(University university) {
+        universityRepository.updateUniversity(university);
+    }
 }

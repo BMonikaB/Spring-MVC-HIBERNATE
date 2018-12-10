@@ -24,8 +24,6 @@ public class StudentClassessService {
     @Autowired
     ClassessRepository classessRepository;
 
-
-
     @Transactional
     public void connectClassesStudent(){
         Classes polski = new Classes("Polski",20);

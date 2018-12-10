@@ -54,6 +54,7 @@ public class Student {
         this.id = id;
     }
 
+
     public void addClassess(Classes classes) {
         this.classes.add(classes);
     }
@@ -131,6 +132,7 @@ public class Student {
 
         return Objects.hash(name, lastName, age);
     }
+
 
     @Override
     public String toString() {

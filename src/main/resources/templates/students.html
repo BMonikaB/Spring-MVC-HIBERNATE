@@ -30,14 +30,24 @@
         <td th:text="${student.name}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.age}"></td>
-        <td><a>wybierz</a></td>
 
         <td>
-            <span th:if="${student.university==null}">Brak przypisanego Uniwersytetu
+            <span
+             th:if="${student.index==null}">Brak przypisanego Indexu
+            <a th:href="${'/assignindex?id='+student.id}">Przypisz zadanie</a>
+            </span>
+            <span th:if="${student.index!=null}" th:text="${student.index.id}"/>
+        </td>
+
+        <td>
+            <span
+             th:if="${student.university==null}">Brak przypisanego Uniwersytetu
              <a th:href="${'/assignuniversity?id='+student.id}">Przypisz zadanie</a>
             </span>
             <span th:if="${student.university!=null}" th:text="${student.university.id}"/>
+
         </td>
+
 
         <td><a th:href="${'/students/showMore/'+student.id}">Pokaz wiecej</a> </td>
         <td><a th:href="${'/students/delete/'+student.id}">Usun</a></td>

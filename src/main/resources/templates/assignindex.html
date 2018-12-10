@@ -11,30 +11,31 @@
 </head>
 <body>
     <div class="container">
-<form class="form-horizontal" th:object="${student}" th:action="@{/assignuniversity}" th:method="post">
+<form class="form-horizontal" th:object="${student}" th:action="@{/assignindex}" th:method="post">
 
 
         <input type="hidden" th:field="*{id}"/>
         <input type="hidden" th:field="*{name}"/>
         <input type="hidden" th:field="*{lastName}"/>
         <input type="hidden" th:field="*{age}"/>
+        <input type="hidden" th:field="*{index}"/>
         <input type="hidden" th:field="*{university}"/>
-                <input type="hidden" th:field="*{index}"/>
+
 
 
 
 
             <div class="form-group">
                         <label class="control-label">Wybierz uniwersytet</label>
-                            <select th:field="*{university}">
-                                <option th:each="university : ${universityList}"
-                                        th:value="${university}"
-                                        th:text="${university.id}"></option>
+                            <select th:field="*{index}">
+                                <option th:each="index : ${indexList}"
+                                        th:value="${index}"
+                                        th:text="${index.id}"></option>
                             </select>
                     </div>
 
             <div class="row">
-                <button type="submit" class="btn btn-default">Dodaj uniwersytet</button>
+                <button type="submit" class="btn btn-default">Dodaj indeks</button>
             </div>
 
         </form>

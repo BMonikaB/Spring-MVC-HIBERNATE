@@ -1,14 +1,16 @@
 package com.example.demo.domain;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Index {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_index;
-    @GeneratedValue
+    private int id;
     private int indexNumber;
     @OneToOne(mappedBy = "index")
     private Student student;
@@ -22,24 +24,19 @@ public class Index {
     }
 
 
-    public Index(int id_index, int indexNumber, Student student) {
-        this.id_index = id_index;
+    public Index(int id, int indexNumber, Student student) {
+        this.id = id;
         this.indexNumber = indexNumber;
         this.student = student;
     }
 
 
-
-    public int getId_index() {
-        return id_index;
-    }
-
     public int getId() {
-        return id_index;
+        return id;
     }
 
     public void setId(int id) {
-        this.id_index = id;
+        this.id = id;
     }
 
     public int getIndexNumber() {
@@ -60,6 +57,8 @@ public class Index {
 
     @Override
     public String toString() {
-        return "Index{" + "id_index=" + id_index + ", indexNumber=" + indexNumber;
+        return "Index{" + "id=" + id + ", indexNumber=" + indexNumber;
     }
+
+
 }

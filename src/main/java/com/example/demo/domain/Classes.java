@@ -9,7 +9,7 @@ public class Classes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_classes;
+    private int id;
     private String nameOfTheClass;
     private int classroom;
     @ManyToMany(mappedBy = "classes")
@@ -26,8 +26,8 @@ public class Classes {
         this.studentList = new ArrayList<>();
     }
 
-    public int getId_classes() {
-        return id_classes;
+    public int getId() {
+        return id;
     }
 
     public String getNameOfTheClass() {
@@ -58,12 +58,12 @@ public class Classes {
         this.studentList.add(student);
     }
 
-
-
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
-        return "Classes{" + "id_classess=" + id_classes + ", nameOfTheClass='" + nameOfTheClass + '\'' + ", studentList=" + studentList + '}';
+        return "Classes{" + "id_classess=" + id + ", nameOfTheClass='" + nameOfTheClass + '\'' + ", studentList=" + studentList + '}';
     }
 }

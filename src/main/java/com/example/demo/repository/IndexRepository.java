@@ -17,8 +17,6 @@ public class IndexRepository {
     @PersistenceContext
     EntityManager entityManager;
 
-    private List<Index> indexList = new ArrayList<>();
-
     IndexRepository() {
 
     }
@@ -30,8 +28,6 @@ public class IndexRepository {
     public void addIndex(int index) {
         Index index1 = new Index(index);
         entityManager.persist(index1);
-          indexList.add(index1);
-           indexList.add(index1);
     }
 
 
@@ -42,20 +38,21 @@ public class IndexRepository {
 
     }
 
-    @Transactional
-    public List<Index> getIndexList() {
-        return indexList;
-    }
 
-    @Transactional
+
     public List<Index> getAllIndex() {
         return entityManager.createQuery("from Index", Index.class).getResultList();
     }
 
     @Transactional
     public void saveIndex(Index index) {
-        addIndex(index.getId_index());
+       addIndex(index.getIndexNumber());
     }
 
+
+    @Transactional
+    public void updateIndex(Index index) {
+        entityManager.merge(index);
+    }
 
 }

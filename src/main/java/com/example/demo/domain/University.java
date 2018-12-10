@@ -1,8 +1,9 @@
 package com.example.demo.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class University {
@@ -12,19 +13,20 @@ public class University {
     private int id;
     private String theNameOfTheUniversity;
     @OneToMany(mappedBy = "university")
-    private Set<Student> studentList;
+    private List<Student> studentList = new ArrayList<>();
 
     public University() {
     }
 
     ;
+
     public University(String theNameOfTheUniversity) {
         this.theNameOfTheUniversity = theNameOfTheUniversity;
-        studentList = new HashSet<>();
+
     }
 
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         studentList.add(student);
     }
 
@@ -44,13 +46,14 @@ public class University {
         this.theNameOfTheUniversity = theNameOfTheUniversity;
     }
 
-    public Set<Student> getStudentList() {
+    public List<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(Set<Student> studentList) {
+    public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
+
 
     @Override
     public String toString() {

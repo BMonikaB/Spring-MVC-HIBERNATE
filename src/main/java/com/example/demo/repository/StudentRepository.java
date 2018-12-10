@@ -16,7 +16,6 @@ public class StudentRepository extends Student {
     @PersistenceContext
     EntityManager entityManager;
 
-    List<Student> students =  new ArrayList<>();
 
     StudentRepository() {
     }
@@ -29,8 +28,6 @@ public class StudentRepository extends Student {
     public void addStudent(String name, String lastName, int age, int index) {
         Student student = new Student(name, lastName, age, index);
         entityManager.persist(student);
-        students.add(student);
-        students.add(student);
     }
 
 
@@ -38,7 +35,6 @@ public class StudentRepository extends Student {
     public void addStudent(String name, String lastName, int age, Index index) {
         Student student = new Student(name, lastName, age, index);
         entityManager.persist(student);
-        students.add(student);
     }
 
     @Transactional
@@ -47,7 +43,6 @@ public class StudentRepository extends Student {
         addStudent("Joanna","Ptak",10,98765);
     }
 
-    @Transactional
     public List<Student> list() {
         return entityManager.createQuery("from Student", Student.class).getResultList();
     }
@@ -60,8 +55,8 @@ public class StudentRepository extends Student {
 
     @Transactional
     public Student getOneStudents(Integer id) {
-       Student student = entityManager.find(Student.class,id);
-       return student;
+     return entityManager.find(Student.class,id);
+
         // return students.get(id);
     }
 
@@ -76,7 +71,9 @@ public class StudentRepository extends Student {
     //nie wiem
     @Transactional
     public void updateStudent(Student student) {
-       entityManager.merge(student);
+        entityManager.merge(student);
 
     }
+
+
 }

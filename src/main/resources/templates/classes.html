@@ -23,7 +23,7 @@
 </thead>
 <tbody>
     <tr th:each="classes : ${classes}">
-        <td th:text="${classes.id_classes}"></td>
+        <td th:text="${classes.id}"></td>
         <td th:text="${classes.nameOfTheClass}"></td>
         <td th:text="${classes.classroom}"></td>
         <td><a th:href="@{'/classes/delete/' +classes.id_classes}">USUN</a> </td>
