@@ -27,7 +27,7 @@ public class Startet  implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
 
-        studentRepository.createStudent();
+      studentRepository.createStudent();
         studentClassessService.connectClassesStudent();
         studentClassessService.connectUniversityStudent();
 

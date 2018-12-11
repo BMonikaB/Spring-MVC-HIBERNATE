@@ -30,4 +30,8 @@ public class UniversityService {
     public void updateUniversity(University university) {
         universityRepository.updateUniversity(university);
     }
+
+    public University getOneUniversity(Integer id) {
+       return universityRepository.getOneUniversity(id);
+    }
 }

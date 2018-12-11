@@ -17,6 +17,7 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL)
     private Index index;
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Id_Uczelni")
     private University university;
     @ManyToMany
     private List<Classes> classes = new ArrayList<>();
@@ -29,7 +30,7 @@ public class Student {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.index =new Index(index);
+        this.index = new Index(index);
         classes = new ArrayList<>();
     }
 
@@ -49,8 +50,7 @@ public class Student {
     }
 
     //probne
-    public Student(int id)
-    {
+    public Student(int id) {
         this.id = id;
     }
 

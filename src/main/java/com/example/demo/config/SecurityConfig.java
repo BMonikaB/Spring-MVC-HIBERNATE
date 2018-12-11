@@ -7,10 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter
+public class SecurityConfig// extends WebSecurityConfigurerAdapter
 
 {
-
+/*
     @Override
     public void configure(HttpSecurity security) throws Exception {
         security.authorizeRequests().antMatchers("/h2-console/**").permitAll()
@@ -35,5 +35,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("user1").password("{noop}user1").roles("USER").and().withUser("admin1").password("{noop}admin1").roles("ADMIN");
     }
-
+*/
 }

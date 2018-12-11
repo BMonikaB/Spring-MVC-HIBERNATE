@@ -1,0 +1,24 @@
+
+<!--<project>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupID>org.liquibase</groupID>
+                <artifactId>maven-myquery-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+
+                    <changeLogFile>src/main/resources/db/changelog/db.changelog.xml</changeLogFile>
+                    <driver>org.h2.Driver</driver>
+                    <url>jdbc:h2:mem:liquibase</url>
+                    <username>liquibase</username>
+                    <password>liquibase</password>
+                    <dropFirst>false</dropFirst>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
